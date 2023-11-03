@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="postTest5.css">
+    <title>105221016_PostTest3</title>
+</head> 
+<body>
+    <div class="grid-container">
+        <div class="item1">
+            <h1 style="text-align: center;">PRAKTIKUM  <span class="spanstyle1"> WEB 3</span></h1>
+            <nav class="apagituterserah">
+              <h1>HMIK  <span class="spanstyle1"> FEST</span></h1>
+              <ul>
+                <li>
+                  <a href=""> Home </a>
+                </li>
+                <li>
+                  <a href=""> About </a>
+                </li>
+                <li>
+                  <a href=""> Porto</a>
+                </li>
+                <li>
+                  <a href=""> Contact </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+        <div class="item2">
+            <img src="C:\Users\rachm\Downloads\DSC_0418.JPG" width="300" height="200" alt= "HMIK Fest day1" alt="gambar kita">
+        </div>
+        <div class="item3">
+            <p>Rating HMIK Fest Day 1:
+                <br>
+                <input type="radio" name="rating" value="m" id="s">
+                <label for="m">b aja</label>
+        
+                <input type="radio" name="rating" value="m" id="s">
+                <label for="m">seru</label>
+        
+                <input type="radio" name="rating" value="m" id="s">
+                <label for="m">seru banget</label><br><br>
+                <input type="submit" value="Submit">
+            </p>
+            <p>
+                <form action="/action_page.php">
+                    <label for="fname">Bagaimana Perasaaanmu saat HMIK Fest Day 1?</label><br>
+                    <input type="text" id="fname" name="fname" style="width: 500px; height: 45px;"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </p>
+        <div class="item4">
+            <p>
+              <br>
+              Klik link untuk melihat dokumentasi HMIK Day 1 :
+              <a href="https://drive.google.com/drive/folders/1l6DzfgxU09c9K8TmPPNd1StCG0_FhH64">Dokumentasi HMIK Fest Day 1</a>
+            </p>
+            <br><br>
+        </div>  
+        <div class="item5">
+          <table>
+            <tr>
+                <td>
+                    <form action="/action_page.php" method="get" onsubmit="hitungPesanan(); return false">
+                        <label for="daftarMakanan">Makanan:</label>
+                        <select id="makanan">
+                            <option value="20000">Bakso</option>
+                            <option value="15000">Katsu</option>
+                            <option value="15000">Chicken Oriental</option>
+                            <option value="15000">Nasi Goreng</option>
+                        </select><br><br>
+                        <label for="jumlah">Jumlah</label>
+                        <input type="text" id="jumlah" style="width: 200px; height: 20px;"><br><br>
+                        <label for="voucher">Voucher(ASPRAKLEONGANTENG)</label>
+                        <input type="text" id="voucher" style="width: 200px; height: 20px;"><br>
+                        <br><br>
+                        <input type="submit" value="Submit">
+                    </form>  
+                </td>
+            </tr>
+        </table>
+        </div>
+        <br><br><br>
+        <div class="item6">
+          <table>
+              <tr>
+                  <td>Nama Pesanan : </td>
+                  <td id="namaMakanan"></td>
+              </tr>
+              <tr>
+                  <td>Jumlah Pesanan : </td>
+                  <td id="jumlahPesanan"></td>
+              </tr>
+              <tr>
+                  <td>Total Diskon : </td>
+                  <td id="voucherDiskon"></td>
+              </tr>
+              <tr>
+                  <td>Total Harga : </td>
+                  <td id="totalPesanan"></td>
+              </tr>
+          </table>
+      </div>
+</body>
+<script>
+  function hitungPesanan() {
+    var pilihMakanan = document.getElementById('makanan');
+    var namaMakanan = pilihMakanan.options[pilihMakanan.selectedIndex].text;
+    var jumlah = parseInt(document.getElementById('jumlah').value);
+    var voucher = document.getElementById('voucher').value;
+
+    var hargaPerMakanan = parseInt(pilihMakanan.value);
+
+    var totalHarga = jumlah * hargaPerMakanan;
+
+    var diskon = 0;
+    if (voucher === 'ASPRAKLEONGANTENG') {
+      diskon = 0.2 * totalHarga;
+    }
+
+    var totalPesanan = totalHarga - diskon;
+
+    document.getElementById('namaMakanan').textContent = namaMakanan;
+    document.getElementById('jumlahPesanan').textContent = jumlah;
+    document.getElementById('voucherDiskon').textContent = diskon;
+    document.getElementById('totalPesanan').textContent = totalPesanan;
+  }
+</script>
+</html>
