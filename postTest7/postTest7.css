@@ -1,0 +1,132 @@
+body{
+    background-color: beige;
+}
+
+h1 { 
+    color: #758467  ; 
+    margin-bottom: 10px; 
+} 
+
+p { 
+    margin-bottom: -10px; 
+} 
+
+.ui { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+
+.baris { 
+    display: flex;
+}
+
+.tampilan { 
+	display: flex; 
+	flex-direction: column; 
+	align-items:center;
+}
+
+.cell { 
+    border: none; 
+    width: 80px; 
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+    text-align: center; 
+    cursor: pointer; 
+    border-radius: 10px; 
+}  
+
+.cell:active { 
+    outline: none; 
+} 
+
+#baris1{ 
+    border-bottom: 1px solid gray; 
+    border-right: 1px solid gray; 
+    background-color:#758467;
+} 
+  
+#baris2 { 
+    border-bottom: 1px solid gray; 
+    border-right: 1px solid gray; 
+    border-left: 1px solid gray; 
+    background-color:#b2b7ae;
+}
+#baris3 { 
+    border-bottom: 1px solid gray; 
+    border-left: 1px solid gray; 
+    background-color:#758467;
+} 
+  
+#baris4 { 
+    border-top: 1px solid gray; 
+    border-bottom: 1px solid gray; 
+    border-right: 1px solid gray; 
+    background-color:#b2b7ae;
+} 
+      
+#baris5 { 
+    border: 1px solid gray; 
+    background-color:#758467;
+} 
+  
+#baris6 { 
+    border-top: 1px solid gray; 
+    border-bottom: 1px solid gray; 
+    border-left: 1px solid gray;
+    background-color:#b2b7ae;
+} 
+  
+#baris7 { 
+    border-top: 1px solid gray; 
+    border-right: 1px solid gray; 
+    background-color:#758467;
+} 
+#baris8 { 
+    border-top: 1px solid gray; 
+    border-right: 1px solid gray; 
+    border-left: 1px solid gray; 
+    background-color:#b2b7ae;
+} 
+  
+#baris9 { 
+    border-top: 1px solid gray; 
+    border-left: 1px solid gray; 
+    background-color:#758467;
+} 
+
+#but { 
+    box-sizing: border-box; 
+    width: 95px; 
+    height: 40px; 
+    border: 1px solid #758467; 
+    margin-left: auto; 
+    border-radius: 8px; 
+    font-family: Verdana, 
+        Geneva, Tahoma, sans-serif; 
+  
+    background-color: whitesmoke; 
+    color: #758467; 
+    font-size: 20px; 
+    cursor: pointer; 
+} 
+
+#print { 
+    font-family: Verdana, 
+        Geneva, Tahoma, sans-serif; 
+    color: #758467; 
+    font-size: 20px; 
+} 
+    
+#main { 
+    text-align: center; 
+} 
+
+.dark-mode {
+    background-color: rgb(73, 73, 44);
+    color: white;
+}

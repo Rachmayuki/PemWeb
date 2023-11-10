@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="postTest7.css">
+</head>
+
+<body> 
+	<body> 
+        <div id="main"> 
+            <h1>TIC TAC TOE</h1><br>
+            <!-- mode gelap tic tac toe-->
+            <button id="toggleModeGelap" onclick="toggleModeGelap()">Toggle Mode Gelap</button>
+            <br><br> 
+            <div class = "tampilan"> 
+                <div class="baris"> 
+                    <input type="text" id= "baris1"
+                        class="cell" onclick="merubah(0);"
+                        readonly> 
+                    <input type="text" id= "baris2"
+                        class="cell" onclick="merubah(1);"
+                        readonly> 
+                    <input type="text" id= "baris3" class="cell"
+                        onclick="merubah(2);"
+                        readonly> 
+                </div> 
+                <div class="baris"> 
+                    <input type="text" id= "baris4"
+                        class="cell" onclick="merubah(3);"
+                        readonly> 
+                    <input type="text" id= "baris5"
+                        class="cell" onclick="merubah(4)";
+                        readonly> 
+                    <input type="text" id= "baris6"
+                        class="cell" onclick="merubah(5)";
+                        readonly> 
+                </div> 
+                <div class="baris"> 
+                    <input type="text" id= "baris7"
+                        class="cell" onclick="merubah(6)";
+                        readonly> 
+                    <input type="text" id= "baris8"
+                        class="cell" onclick="merubah(7);"
+                        readonly> 
+                    <input type="text" id= "baris9"
+                        class="cell" onclick="merubah(8);"
+                        readonly> 
+                </div> 
+            </div> 
+            <br><br><br> 
+            
+            <button id="reset" onclick="resetGame()"> 
+                RESET 
+            </button> 
+            <br><br> 
+            <p id="print"></p> 
+        </div>     
+        
+</body>
+<script>
+    //array untuk status sel
+var cells = new Array(9);
+//mengatur giliran pemain (X atau O)
+var flag = 1; 
+
+//array sel dan tombol
+var cells = ["baris1", "baris2", "baris3", "baris4", "baris5", "baris6", "baris7", "baris8", "baris9"];
+
+for (var i = 0; i < 9; i++) {
+    cells[i] = "";
+}
+
+//fungsi mengklik sebuah sel
+function merubah(index) {
+    var cell = document.getElementById("baris" + (index + 1));
+    if (cells[index] === "" && flag === 1) {
+        cell.value = "X";
+        cells[index] = "X";
+        cell.disabled = true;
+        flag = 0;
+    } else if (cells[index] === "" && flag === 0) {
+        cell.value = "0";
+        cells[index] = "0";
+        cell.disabled = true;
+        flag = 1;
+    }
+    cekPemenang();
+}
+
+function cekPemenang() {
+    var kombinasiPemenang = [
+        //pemenang secara horizontal
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        // Menang secara vertikal
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        // Menang secara diagonal 
+        [0, 4, 8], [2, 4, 6] 
+    ];
+
+    for (var i = 0; i < kombinasiPemenang.length; i++) {
+        var [a, b, c] = kombinasiPemenang[i];
+        if (cells[a] !== "" && cells[a] === cells[b] && cells[a] === cells[c]) {
+            //terdapat pemenang
+            selPemenang(a, b, c);
+            if (cells[a] === "X") {
+                document.getElementById("print").innerHTML = "Player X won";
+            } else if (cells[a] === "0") {
+                document.getElementById("print").innerHTML = "Player 0 won";
+            }
+            nonAktifCell();
+            return;
+        }
+    }
+//seri jika tdk ada pemenang
+if (cells.every(cell => cell !== "")) {
+    document.getElementById("print").innerHTML = "Match Tie";
+    nonAktifCell();
+}
+}
+
+//permainan selesai maka dinon aktifkan cell
+function nonAktifCell() {
+for (var i = 0; i < 9; i++) {
+    var cell = document.getElementById("baris" + (i + 1));
+    cell.disabled = true;
+}
+}
+
+//menyorot sel-sel yang menang
+function selPemenang(a, b, c) {
+document.getElementById("baris" + (a + 1)).style.color = "white";
+document.getElementById("baris" + (b + 1)).style.color = "white";
+document.getElementById("baris" + (c + 1)).style.color = "white";
+}
+
+//mereset/mengatur ulang permainan
+function resetGame() {
+    //menghapus isi sel dan mengaktifkan sel
+    cells.fill("");
+    for (var i = 0; i < 9; i++) {
+        var cell = document.getElementById("baris" + (i + 1));
+        cell.value = "";
+        cell.disabled = false;
+    }
+    flag = 1;
+    //mengatur giliran pemain awal
+    document.getElementById("print").innerHTML = "Player X Turn"; 
+}
+
+//mengaktifkan atau menonaktifkan mode gelap
+function toggleModeGelap() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+}
+</script>
+</html>
