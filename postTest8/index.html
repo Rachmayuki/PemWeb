@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nilai Mata Kuliah</title>
+</head>
+<body>
+    <h2>Form Input Nilai Mata Kuliah</h2>
+
+    <form action="hitung_ipk.php" method="post">
+        <!-- menginput nilai mata kuliah 1 -->
+        <label for="nilai_matkul">Nilai Mata Kuliah 1 :</label>
+        <input type="text" name="nilai[]" required><br>
+
+        <!-- container menambah kolom input dinamis -->
+        <div id="kolom_input"></div>
+
+        <button type="button" id="tambah_input">Tambah Mata Kuliah</button>
+        <br>
+
+        <input type="submit" value="Hitung IPK">
+    </form>
+
+    <script>
+        var counter = 2;
+        document.getElementById('tambah_input').addEventListener('click', function(){
+            var newLabel = document.createElement('label');
+            newLabel.setAttribute('for', 'nilai_matkul' + counter);
+            newLabel.textContent = 'Nilai Mata Kuliah' + (counter) +':';
+
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.name = 'nilai[]';
+            newInput.placeholder = 'Nilai Mata Kuliah' + (counter - 1);
+
+            document.getElementById('kolom_input').appendChild(newLabel);
+            document.getElementById('kolom_input').appendChild(newInput);
+            document.getElementById('kolom_input').appendChild(document.createElement
+            ('br'));
+
+        });
+    </script>
+</body>
+</html>
