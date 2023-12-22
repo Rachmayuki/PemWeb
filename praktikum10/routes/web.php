@@ -8,5 +8,5 @@ Route::get('/pesan', [OrderController::class, 'showFormPesan'])->name('show-form
 Route::post('/submit-data', [OrderController::class, 'submitOrder'])->name('submit-data');
 
 Route::get('/', function () {
-    return redirect()->route('show-form-pesan'); // Ubah rute ke show-form-pesan
+    return redirect()->route('show-form-data'); // Ubah rute ke show-form-pesan
 });
