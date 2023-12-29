@@ -1,0 +1,163 @@
+body{
+    background-color: #EEE0C9;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+header{
+    text-align: left;
+    padding: 20px;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.menu{
+    text-align: left;
+    padding-left: 30px;
+    gap: 30px;
+}
+
+ul{
+    margin-left: 10px;
+}
+
+a{
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding-right: 8px;
+}
+
+.spanstyle1{
+    color: #EEE0C9;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.gallery{
+    margin-left: 6px;
+    margin-right: 20px;
+}
+
+.gallery a img{
+    margin: 4px;
+    width: 263px;
+    height: 160px;
+}
+  
+.gallery:hover{
+    background-color: #B5B4A2;
+}
+  
+.gallery img{
+    width: 100%;
+    height: auto;
+}
+  
+.desc{
+    padding: 5px;
+    text-align: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas:
+      'header header'
+      'menu menu'
+      'main nav'
+      'input input';
+      grid-template-columns: 0.4fr 0.8fr;
+      grid-template-rows: 0.1fr 0.3fr 0.8fr 0.2fr;
+      padding: 5px;
+      border: 3px rgb(232, 219, 199);
+}
+
+.grid-container > div{
+    padding: 10px 0;
+    background-color: #758467;
+}
+
+.item1{
+    grid-area: header;
+    text-align: center;
+    border-radius: 10px 10px;
+    margin-bottom: 10px;
+}
+
+.item2{
+    grid-area: menu;
+    text-decoration-color: white;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px 10px;
+}
+
+.item3{
+    grid-area: main;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px 0px 0px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+}
+
+.item4{
+    grid-area: main nav;
+    text-align: justify;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    overflow: scroll;
+    border-radius: 0px 10px 10px 0px;
+    height: 400px;
+}
+
+.item5{
+   grid-area: input;
+   border-radius: 10px 10px;
+   margin-bottom: 10px;
+   margin-top: 10px;
+
+}
+
+.item5rating{
+    float: inline-start;
+    padding-left: 100px;
+}
+
+.item5pendapat{
+    float: inline-end;
+    padding-right: 100px;
+    text-align: justify;
+    margin-bottom: 80px;
+    width: 500px;
+    height: 45px;
+}
+
+#keterangan1{
+    position: absolute;
+    margin-top: 5px;
+    left: 40px;
+}
+
+/* Mengatur border youtube */
+iframe{
+    border: 10px solid #B5B4A2;
+}
